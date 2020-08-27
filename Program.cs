@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace MethodsWithLoopsAndConditionals
@@ -18,7 +19,7 @@ namespace MethodsWithLoopsAndConditionals
             //ArrayBuilder(5);
 
             //int[] testArray = { 3, 4, 5 };
-            //SumArray(testArray);
+            //Console.WriteLine(SumArray(testArray));
 
             //CubeAllBelow(3);
 
@@ -28,26 +29,19 @@ namespace MethodsWithLoopsAndConditionals
         {
             for (int num = 1; num <= topNumber; num++)
             {
-                var cubedNumber = num * num * num;
+                var cubedNumber = Math.Pow(num,3);
                 Console.WriteLine($"The starting number is {num}, and the cube of {num} is {cubedNumber}.");
             }
         }
 
-        static void SumArray(int[] someArray)
+        static int SumArray(int[] someArray)
         {
-            var temp = 0;
-
-            foreach (int element in someArray)
-            {
-                temp += element;
-            }
-            Console.WriteLine(temp);
+            return someArray.Sum();
         }
 
         static void ArrayBuilder(int indexNumber)
         {
             int[] userArray = new int[indexNumber];
-
 
             for (var index = 0; index < indexNumber; index++)
             {
@@ -57,8 +51,6 @@ namespace MethodsWithLoopsAndConditionals
 
                 Console.WriteLine(temp);
             }
-
-
             Console.WriteLine(userArray[2]);
         }
 
@@ -96,7 +88,7 @@ namespace MethodsWithLoopsAndConditionals
             }
             else
             {
-                Console.WriteLine("Uh oh. Something went wrong.");
+                Console.WriteLine("Sorry! That doesn't look like valid number.");
             }
         }
 
